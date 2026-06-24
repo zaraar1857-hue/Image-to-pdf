@@ -15,7 +15,7 @@
 /* 🌈 BACKGROUND */
 body{
 margin:0;
-font-family:system-ui;
+font-family:system-ui, -apple-system, sans-serif;
 color:#fff;
 background:linear-gradient(-45deg,#0f172a,#1e293b,#111827,#0b1220);
 background-size:400% 400%;
@@ -32,20 +32,41 @@ animation:bg 10s ease infinite;
 nav{
 display:flex;
 justify-content:space-between;
+align-items: center;
+flex-wrap: wrap;
 padding:15px 20px;
 backdrop-filter:blur(20px);
 background:rgba(255,255,255,0.08);
 position:sticky;
 top:0;
 z-index:10;
+border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-nav b{font-size:16px}
+.logo b{font-size:18px; color: #22c55e;}
+
+/* NAV LINKS FOR ADSENSE */
+.nav-links {
+display: flex;
+gap: 15px;
+flex-wrap: wrap;
+margin-top: 5px;
+}
+.nav-links a {
+color: #cbd5e1;
+text-decoration: none;
+font-size: 14px;
+font-weight: 500;
+transition: 0.3s;
+}
+.nav-links a:hover {
+color: #22c55e;
+}
 
 /* HERO */
 .hero{
 text-align:center;
-padding:40px 20px;
+padding:50px 20px 30px;
 }
 
 .hero h1{
@@ -58,37 +79,97 @@ background:linear-gradient(90deg,#22c55e,#60a5fa);
 
 .hero p{
 color:#94a3b8;
+margin-top: 10px;
+font-size: 16px;
 }
 
 /* MAIN WRAPPER */
 .container{
 display:flex;
-justify-content:center;
+flex-direction: column;
+align-items:center;
 padding:20px;
+gap: 30px;
 }
 
-/* GLASS CARD */
+/* GLASS CARD (THE TOOL) */
 .glass{
 width:100%;
 max-width:700px;
-padding:25px;
+padding:30px;
 border-radius:18px;
-
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(25px);
 border:1px solid rgba(255,255,255,0.15);
-
 box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* 🚀 HIGH-VALUE EXTENSIVE SEO CONTENT SECTION FOR ADSENSE APPROVAL */
+.seo-content {
+width: 100%;
+max-width: 850px;
+background: rgba(15, 23, 42, 0.6);
+padding: 40px;
+border-radius: 16px;
+border: 1px solid rgba(255,255,255,0.08);
+color: #cbd5e1;
+line-height: 1.8;
+text-align: left;
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.seo-content h2 {
+color: #22c55e;
+font-size: 24px;
+margin-top: 30px;
+margin-bottom: 15px;
+border-left: 4px solid #22c55e;
+padding-left: 12px;
+}
+.seo-content h3 {
+color: #60a5fa;
+font-size: 19px;
+margin-top: 25px;
+margin-bottom: 10px;
+}
+.seo-content p {
+font-size: 15px;
+margin-bottom: 20px;
+color: #94a3b8;
+}
+.seo-content ul, .seo-content ol {
+margin-bottom: 20px;
+padding-left: 20px;
+color: #94a3b8;
+}
+.seo-content li {
+margin-bottom: 8px;
+font-size: 15px;
+}
+.faq-item {
+background: rgba(255,255,255,0.03);
+padding: 15px 20px;
+border-radius: 8px;
+margin-bottom: 12px;
+border: 1px solid rgba(255,255,255,0.05);
+}
+.faq-item h4 {
+margin: 0 0 8px 0;
+color: #f1f5f9;
+font-size: 16px;
+}
+.faq-item p {
+margin: 0;
+font-size: 14px;
 }
 
 /* INPUTS */
 input,select,button{
 width:100%;
-padding:12px;
+padding:14px;
 margin:10px 0;
 border:none;
 border-radius:10px;
-font-size:14px;
+font-size:15px;
 box-sizing: border-box;
 }
 
@@ -111,7 +192,7 @@ color: white;
 }
 
 button:hover{
-transform:scale(1.03);
+transform:scale(1.02);
 }
 
 /* QUALITY BADGES */
@@ -119,14 +200,15 @@ transform:scale(1.03);
 display:flex;
 gap:10px;
 justify-content:center;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 .badge{
-padding:5px 10px;
+padding:6px 12px;
 border-radius:20px;
-font-size:12px;
+font-size:13px;
 background:rgba(255,255,255,0.1);
+font-weight: bold;
 }
 
 /* PREVIEW */
@@ -138,8 +220,8 @@ margin-top:10px;
 }
 
 .preview img{
-width:70px;
-height:70px;
+width:75px;
+height:75px;
 object-fit:cover;
 border-radius:10px;
 border:2px solid rgba(255,255,255,0.2);
@@ -149,14 +231,40 @@ border:2px solid rgba(255,255,255,0.2);
 .info{
 font-size:13px;
 color:#94a3b8;
-margin-top:10px;
+margin-top:15px;
 text-align:center;
 }
 
+/* FOOTER */
 footer{
 text-align:center;
-padding:20px;
-opacity:0.7;
+padding:30px 20px;
+border-top: 1px solid rgba(255,255,255,0.1);
+margin-top: 40px;
+background:rgba(0,0,0,0.2);
+}
+.footer-links {
+margin-top: 15px;
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+.footer-links a {
+color: #94a3b8;
+text-decoration: none;
+font-size: 13px;
+}
+.footer-links a:hover {
+color: #22c55e;
+}
+
+/* DESKTOP ADJUSTMENTS */
+@media (min-width: 768px) {
+nav { padding: 15px 50px; }
+nav .nav-links { margin-top: 0; }
+.hero h1 { font-size: 48px; }
+.glass { padding: 40px; }
 }
 
 </style>
@@ -165,7 +273,14 @@ opacity:0.7;
 <body>
 
 <nav>
-<div><b>🧾 Pro Glass PDF</b></div>
+<div class="logo"><b>🧾 Pro Glass PDF</b></div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="privacy.html">Privacy Policy</a>
+<a href="disclaimer.html">Disclaimer</a>
+<a href="contact.html">Contact</a>
+</div>
 </nav>
 
 <div class="hero">
@@ -175,7 +290,6 @@ opacity:0.7;
 
 <div class="container">
 <div class="glass">
-
 <div class="badges">
 <div class="badge">🔥 HD</div>
 <div class="badge">⚡ Medium</div>
@@ -204,17 +318,82 @@ opacity:0.7;
 </div>
 
 <div class="preview" id="preview"></div>
+</div>
 
+<div class="seo-content">
+<h2>Ultimate Guide to Converting Images to PDF Online</h2>
+<p>In today's fast-paced digital world, document optimization and format conversion are integral parts of daily personal and professional operations. Whether you are a student compiling assignment screenshots, an employee organizing transaction bills, or a freelancer arranging design layouts, managing multiple standalone image formats (like JPEG, PNG, or WebP) can quickly become a tedious chore. That is precisely where <strong>Pro Glass PDF</strong> steps in—offering a streamlined, high-performance solution that seamlessly transforms multiple graphic items into a single, cohesive, standardized PDF document.</p>
+
+<h3>Why Choose Portable Document Format (PDF) over Raw Images?</h3>
+<p>Images are highly versatile for editing, capturing, and viewing, but they lack standard consistency when distributed across different operating systems, screen dimensions, or email clients. Converting images into PDFs offers several distinct advantages:</p>
+<ul>
+<li><strong>Universal Cross-Platform Layout Retention:</strong> Unlike image files that might open differently depending on the specific device gallery viewer, a PDF preserves fonts, scaling, and formatting perfectly across Android, iOS, Windows, and macOS systems.</li>
+<li><strong>Superior Data Compression Management:</strong> Storing dozens of separate high-resolution photos consumes immense disk memory. By combining them into one single PDF and leveraging custom compression configurations, you dramatically lower data volume without destroying visual readability.</li>
+<li><strong>Enhanced Document Protection & Alignment:</strong> Merging related receipts, passport pages, or certificates into a linear page-by-page system eliminates the chaotic challenge of maintaining detached file sequences.</li>
+</ul>
+
+<h2>How to Use Our Client-Side Glassmorphism Image to PDF Converter</h2>
+<p>Our platform is meticulously engineered to prioritize speed, visual simplicity, and user engagement. You do not need technical expertise or complex premium desktop software installations to manage your conversions. Follow these easy, step-by-step instructions to create your documents instantly:</p>
+<ol>
+<li><strong>Select Your Source Files:</strong> Tap the "Choose Files" field inside the central translucent module. You can select single or multiple images directly from your mobile gallery, local camera folder, or computer drive.</li>
+<li><strong>Pick the Desired Compression Mode:</strong> Use the quality drop-down selector to choose the output setting that matches your needs (HD Quality for crystal-clear texts, Medium Quality for standard balancing, or Low Quality to save mobile data storage space).</li>
+<li><strong>Provide a Custom Document Title:</strong> In the text input area marked "Enter PDF Name", type your desired file designation. If left blank, the utility automatically applies a timestamp signature to ensure uniqueness.</li>
+<li><strong>Compile Your PDF Document:</strong> Click the vibrant green "Generate PDF" button. The system will process everything locally on canvas and instantly render two contextual control elements: "Save PDF" and "Share PDF".</li>
+</ol>
+
+<h2>Deep Dive: Understanding the Technical Resolution Modes</h2>
+<p>What sets Pro Glass PDF apart from generic alternatives is our advanced client-side downscaling engine. Depending on your primary distribution objective, our system handles pixel scaling and JPEG quantization dynamically using these internal presets:</p>
+<h3>1. High Definition Mode (HD Quality)</h3>
+<p>This setting applies a 0.98 structural compression factor. It is highly recommended for official documents containing fine print typography, digital signatures, analytical charts, or certificates where structural clarity is absolutely mandatory. The canvas renders high resolution, ensuring that zooming in does not result in blurred or pixelated artifacts.</p>
+<h3>2. Balanced Mode (Medium Quality)</h3>
+<p>Utilizing a balanced compression algorithm factor of 0.85, Medium Quality is optimized for rapid email attachments and web submissions. It maintains an outstanding visual standard while cutting the physical weight of heavy smartphone photography assets by up to 50 percent.</p>
+<h3>3. Compressed Mode (Low Quality)</h3>
+<p>Engineered explicitly for low-bandwidth zones and strict data uploading limits, Low Quality minimizes the output size via a 0.65 rendering optimization matrix. It is ideal for rough layouts, casual previews, or massive image batches where file size limits are the primary constraint.</p>
+
+<h2>100% Client-Side Privacy: Your Private Data Never Leaves Your Device</h2>
+<p>Most traditional web converters operate via automated background server uploads. When you drop your files into those platforms, your personal images are transmitted to an external cloud database, parsed remotely, and sent back. This introduces a major security risk for confidential items like personal identity cards, banking invoices, and private screenshots.</p>
+<p><strong>Pro Glass PDF breaks this risky cycle completely.</strong> Our framework runs entirely inside your browser tab utilizing state-of-the-art Web APIs (Canvas Rendering Context 2D and jsPDF binary streams). Your files are never uploaded to an external server. The execution happens natively on your device's RAM, making the process 100% secure, private, and capable of processing data with zero internet upload delay.</p>
+
+<h2>Frequently Asked Questions (FAQs)</h2>
+<div class="faq-item">
+<h4>Q1: Is there a maximum image upload count limit?</h4>
+<p>No. Since all operations take place within your phone or PC's built-in browser memory architecture rather than a remote cloud host, there are no artificial limits imposed on the file count.</p>
+</div>
+<div class="faq-item">
+<h4>Q2: What graphics file structures are supported?</h4>
+<p>The converter fully supports all standard image file formats globally handled by browser rendering systems, including JPG, JPEG, PNG, WebP, and standard BMP files.</p>
+</div>
+<div class="faq-item">
+<h4>Q3: Why did my converted file save into my Downloads folder instead of Google Drive?</h4>
+<p>We designed our updated download pipeline to bypass external cloud storage redirects. Tapping "Save PDF" triggers a native browser download block that channels the document straight into your device's local system downloads folder for instant offline access.</p>
+</div>
+<div class="faq-item">
+<h4>Q4: How does the "Share PDF" button function on smartphones?</h4>
+<p>The system integrates directly with the Web Share API on mobile devices. When pressed, it launches your phone's native sharing dashboard, allowing you to instantly send the file to WhatsApp, Telegram, or email without manually looking for it in your files.</p>
+</div>
+<div class="faq-item">
+<h4>Q5: Can I use this web utility when I am completely offline?</h4>
+<p>Yes. Once the web page finishes loading in your browser, the script runs entirely offline because it does not depend on cloud processing scripts or server connections to handle the image parsing.</p>
+</div>
+<div class="faq-item">
+<h4>Q6: Will using Low Quality make text unreadable?</h4>
+<p>Low Quality applies solid compression to reduce file size, which works great for scenery or layouts. However, for dense textual images like scanned books, we highly recommend HD or Medium settings to preserve readability.</p>
 </div>
 </div>
 
-<footer>© 2026 Pro Glass Tools</footer>
+</div>
+
+<footer>
+<div>© 2026 Pro Glass Tools. All rights reserved.</div>
+<div class="footer-links">
+<a href="privacy.html">Privacy Policy</a>
+<a href="disclaimer.html">Disclaimer</a>
+<a href="terms.html">Terms of Service</a>
+</div>
+</footer>
 
 <script>
-
 const { jsPDF } = window.jspdf;
-
-// Global variables to hold PDF data until user clicks Save or Share
 let finalPdfBlob = null;
 let finalFileName = "";
 
@@ -222,9 +401,7 @@ let finalFileName = "";
 document.getElementById("files").addEventListener("change",e=>{
 let box=document.getElementById("preview");
 box.innerHTML="";
-// Hide action buttons again if new images are selected
 document.getElementById("actionButtons").style.display = "none";
-
 for(let f of e.target.files){
 let img=document.createElement("img");
 img.src=URL.createObjectURL(f);
@@ -232,7 +409,7 @@ box.appendChild(img);
 }
 });
 
-/* QUALITY SYSTEM */
+/* QUALITY */
 function getQuality(mode){
 if(mode==="hd") return 0.98;
 if(mode==="medium") return 0.85;
@@ -240,9 +417,8 @@ if(mode==="low") return 0.65;
 return 0.95;
 }
 
-/* CONVERT - ONLY CREATES PDF AND SHOWS BUTTONS */
+/* CONVERT */
 async function convert(){
-
 let files=document.getElementById("files").files;
 let mode=document.getElementById("qualityMode").value;
 let quality=getQuality(mode);
@@ -253,44 +429,31 @@ alert("Please select images first");
 return;
 }
 
-// Show processing text
 btn.innerText = "Processing...";
-
 const pdf=new jsPDF("p","mm","a4");
 
 for(let i=0;i<files.length;i++){
-
 let img=await load(files[i]);
-
 let canvas=document.createElement("canvas");
 canvas.width=img.width*2;
 canvas.height=img.height*2;
-
 let ctx=canvas.getContext("2d");
 ctx.scale(2,2);
 ctx.drawImage(img,0,0);
-
 let data=canvas.toDataURL("image/jpeg",quality);
-
 if(i>0) pdf.addPage();
-
 pdf.addImage(data,"JPEG",10,10,190,270);
 }
 
-// Set File Name
 let inputName = document.getElementById("customFileName").value.trim();
 finalFileName = inputName !== "" ? inputName + ".pdf" : "pro-glass-" + Date.now() + ".pdf";
-
-// Store the PDF in memory
 finalPdfBlob = pdf.output("blob");
 
-// Reset Generate button and show Save/Share buttons
 btn.innerText = "Generate PDF";
 document.getElementById("actionButtons").style.display = "flex";
-
 }
 
-/* ✅ NEW: SAVE FUNCTION */
+/* SAVE */
 function savePDF() {
 if(!finalPdfBlob) return;
 const url = URL.createObjectURL(finalPdfBlob);
@@ -306,11 +469,10 @@ URL.revokeObjectURL(url);
 },1000);
 }
 
-/* ✅ NEW: SHARE FUNCTION (MOBILE FRIENDLY) */
+/* SHARE */
 async function sharePDF() {
 if(!finalPdfBlob) return;
 const file = new File([finalPdfBlob], finalFileName, { type: 'application/pdf' });
-
 if (navigator.canShare && navigator.canShare({ files: [file] })) {
 try {
 await navigator.share({
@@ -318,15 +480,13 @@ files: [file],
 title: 'Converted PDF',
 text: 'Here is my converted PDF file.'
 });
-} catch (error) {
-console.log('Error sharing', error);
-}
+} catch (error) { console.log('Error sharing', error); }
 } else {
 alert("Your browser does not support sharing files directly. Please use the Save PDF button.");
 }
 }
 
-/* LOAD IMAGE */
+/* LOAD */
 function load(file){
 return new Promise(res=>{
 let img=new Image();
@@ -334,7 +494,6 @@ img.src=URL.createObjectURL(file);
 img.onload=()=>res(img);
 });
 }
-
 </script>
 
 </body>
