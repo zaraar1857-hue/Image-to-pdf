@@ -75,7 +75,6 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items: center;
-flex-wrap: wrap;
 padding:15px 20px;
 backdrop-filter:blur(20px);
 background: var(--nav-bg);
@@ -91,9 +90,8 @@ transition: 0.3s;
 .nav-links {
 display: flex;
 gap: 15px;
-flex-wrap: wrap;
-margin-top: 5px;
 align-items: center;
+white-space: nowrap; /* لنکس کو ایک ہی لائن میں رکھنے کے لیے */
 }
 .nav-links a {
 color: var(--text-muted);
@@ -117,8 +115,7 @@ color: #22c55e;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
-  width: auto;
-  margin: 0;
+  white-space: nowrap;
 }
 .nav-btn:hover {
   background: var(--text-main);
@@ -329,7 +326,6 @@ color: #22c55e;
 /* DESKTOP ADJUSTMENTS */
 @media (min-width: 768px) {
 nav { padding: 15px 50px; }
-nav .nav-links { margin-top: 0; }
 .hero h1 { font-size: 48px; }
 .glass { padding: 40px; }
 }
@@ -337,7 +333,7 @@ nav .nav-links { margin-top: 0; }
 </style>
 </head>
 
-<body>
+<body class="dark-mode"> <!-- ڈیفالٹ ڈارک موڈ کلاس -->
 
 <!-- NAVIGATION BAR -->
 <nav>
@@ -349,8 +345,8 @@ nav .nav-links { margin-top: 0; }
 <a href="disclaimer.html">Disclaimer</a>
 <a href="contact.html">Contact</a>
 <!-- NEW BUTTONS FOR INSTALL APP & THEME -->
-<button id="installBtn" class="nav-btn">📲 Install App</button>
-<button id="themeBtn" class="nav-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+<button id="installBtn" class="nav-btn">📲 Install</button>
+<button id="themeBtn" class="nav-btn" onclick="toggleTheme()">☀️ Light Mode</button>
 </div>
 </nav>
 
@@ -475,16 +471,10 @@ let finalFileName = "";
 function toggleTheme() {
   document.body.classList.toggle('dark-mode');
   const isDark = document.body.classList.contains('dark-mode');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
   document.getElementById('themeBtn').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
 }
-// Check saved theme on load
-if(localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-  document.getElementById('themeBtn').innerText = '☀️ Light Mode';
-}
 
-/* 📲 INSTALL APP LOGIC (PWA Fallback) */
+/* 📲 INSTALL APP LOGIC */
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 
@@ -499,11 +489,9 @@ installBtn.addEventListener('click', async () => {
     const { outcome } = await deferredPrompt.userChoice;
     deferredPrompt = null;
   } else {
-    // FALLBACK: User instructions if browser block install or Manifest is missing
-    alert("Installation prompt is not available directly right now.\n\nPlease go to your browser's menu (⋮) and select 'Add to Home screen' or 'Install App' to use it like a native app!");
+    alert("Please go to your browser's menu (⋮) and select 'Add to Home screen' or 'Install App'!");
   }
 });
-
 
 /* PREVIEW */
 document.getElementById("files").addEventListener("change",e=>{
