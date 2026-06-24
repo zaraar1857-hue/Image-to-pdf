@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pro Glass Image to PDF Converter | HD Tool</title>
+
+<meta name="description" content="Free Image to PDF converter with HD, Medium, Low quality options. 100% browser based, no upload required. Fast and secure tool.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+/* 🌈 BACKGROUND */
+body{
+margin:0;
+font-family:system-ui;
+color:#fff;
+background:linear-gradient(-45deg,#0f172a,#1e293b,#111827,#0b1220);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.08);
+position:sticky;
+top:0;
+z-index:10;
+}
+
+nav b{font-size:16px}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:40px 20px;
+}
+
+.hero h1{
+font-size:38px;
+margin:0;
+background:linear-gradient(90deg,#22c55e,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+color:#94a3b8;
+}
+
+/* MAIN WRAPPER */
+.container{
+display:flex;
+justify-content:center;
+padding:20px;
+}
+
+/* GLASS CARD */
+.glass{
+width:100%;
+max-width:700px;
+padding:25px;
+border-radius:18px;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,0.15);
+
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* INPUTS */
+input,select,button{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:14px;
+}
+
+input,select{
+background:rgba(255,255,255,0.1);
+color:white;
+outline:none;
+}
+
+button{
+background:linear-gradient(90deg,#22c55e,#16a34a);
+font-weight:bold;
+cursor:pointer;
+transition:0.2s;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+
+/* QUALITY BADGES */
+.badges{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-bottom:10px;
+}
+
+.badge{
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+background:rgba(255,255,255,0.1);
+}
+
+/* PREVIEW */
+.preview{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:10px;
+}
+
+.preview img{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+border:2px solid rgba(255,255,255,0.2);
+}
+
+/* INFO */
+.info{
+font-size:13px;
+color:#94a3b8;
+margin-top:10px;
+text-align:center;
+}
+
+footer{
+text-align:center;
+padding:20px;
+opacity:0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>🧾 Pro Glass PDF</b></div>
+</nav>
+
+<div class="hero">
+<h1>Image to PDF Converter</h1>
+<p>HD • Medium • Low Quality | Glass UI • No Upload Required</p>
+</div>
+
+<div class="container">
+<div class="glass">
+
+<!-- QUALITY BADGES -->
+<div class="badges">
+<div class="badge">🔥 HD</div>
+<div class="badge">⚡ Medium</div>
+<div class="badge">📉 Low</div>
+</div>
+
+<input type="file" id="files" multiple accept="image/*">
+
+<select id="qualityMode">
+<option value="hd">HD Quality (Best)</option>
+<option value="medium">Medium Quality</option>
+<option value="low">Low Quality</option>
+</select>
+
+<button onclick="convert()">Generate PDF</button>
+
+<div class="info">
+✔ 100% Browser Based • ✔ No Upload • ✔ Fast Processing
+</div>
+
+<div class="preview" id="preview"></div>
+
+</div>
+</div>
+
+<footer>© 2026 Pro Glass Tools</footer>
+
+<script>
+
+const { jsPDF } = window.jspdf;
+
+/* PREVIEW */
+document.getElementById("files").addEventListener("change",e=>{
+let box=document.getElementById("preview");
+box.innerHTML="";
+for(let f of e.target.files){
+let img=document.createElement("img");
+img.src=URL.createObjectURL(f);
+box.appendChild(img);
+}
+});
+
+/* QUALITY SYSTEM */
+function getQuality(mode){
+if(mode==="hd") return 0.98;
+if(mode==="medium") return 0.85;
+if(mode==="low") return 0.65;
+return 0.95;
+}
+
+/* CONVERT */
+async function convert(){
+
+let files=document.getElementById("files").files;
+let mode=document.getElementById("qualityMode").value;
+let quality=getQuality(mode);
+
+if(!files.length){
+alert("Please select images");
+return;
+}
+
+const pdf=new jsPDF("p","mm","a4");
+
+for(let i=0;i<files.length;i++){
+
+let img=await load(files[i]);
+
+let canvas=document.createElement("canvas");
+canvas.width=img.width*2;
+canvas.height=img.height*2;
+
+let ctx=canvas.getContext("2d");
+ctx.scale(2,2);
+ctx.drawImage(img,0,0);
+
+let data=canvas.toDataURL("image/jpeg",quality);
+
+if(i>0) pdf.addPage();
+
+pdf.addImage(data,"JPEG",10,10,190,270);
+}
+
+pdf.save("pro-glass.pdf");
+}
+
+/* LOAD IMAGE */
+function load(file){
+return new Promise(res=>{
+let img=new Image();
+img.src=URL.createObjectURL(file);
+img.onload=()=>res(img);
+});
+}
+
+</script>
+
+</body>
+</html>
