@@ -89,6 +89,7 @@ margin:10px 0;
 border:none;
 border-radius:10px;
 font-size:14px;
+box-sizing: border-box;
 }
 
 input,select{
@@ -97,11 +98,16 @@ color:white;
 outline:none;
 }
 
+input::placeholder {
+color: #cbd5e1;
+}
+
 button{
 background:linear-gradient(90deg,#22c55e,#16a34a);
 font-weight:bold;
 cursor:pointer;
 transition:0.2s;
+color: white;
 }
 
 button:hover{
@@ -184,7 +190,10 @@ opacity:0.7;
 <option value="low">Low Quality</option>
 </select>
 
-<button onclick="convert()">Generate PDF</button>
+<!-- ✅ NEW FILE NAME INPUT -->
+<input type="text" id="customFileName" placeholder="Enter PDF Name (Optional)...">
+
+<button onclick="convert()">Download & Save PDF</button>
 
 <div class="info">
 ✔ 100% Browser Based • ✔ No Upload • ✔ Fast Processing
@@ -253,14 +262,18 @@ if(i>0) pdf.addPage();
 pdf.addImage(data,"JPEG",10,10,190,270);
 }
 
-/* ✅ FIXED DOWNLOAD (ONLY CHANGE) */
-const fileName = "pro-glass-" + Date.now() + ".pdf";
+/* ✅ FIXED DOWNLOAD WITH CUSTOM NAME */
+let inputName = document.getElementById("customFileName").value.trim();
+// اگر نام نہیں لکھا تو آٹومیٹک نام دے گا، اگر لکھا ہے تو وہی نام رکھے گا
+let finalFileName = inputName !== "" ? inputName + ".pdf" : "pro-glass-" + Date.now() + ".pdf";
+
 const blob = pdf.output("blob");
 const url = URL.createObjectURL(blob);
 
 const a = document.createElement("a");
+a.style.display = "none";
 a.href = url;
-a.download = fileName;
+a.download = finalFileName;
 document.body.appendChild(a);
 a.click();
 
