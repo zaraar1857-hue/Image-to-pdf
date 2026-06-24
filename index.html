@@ -170,7 +170,6 @@ opacity:0.7;
 <div class="container">
 <div class="glass">
 
-<!-- QUALITY BADGES -->
 <div class="badges">
 <div class="badge">🔥 HD</div>
 <div class="badge">⚡ Medium</div>
@@ -254,7 +253,22 @@ if(i>0) pdf.addPage();
 pdf.addImage(data,"JPEG",10,10,190,270);
 }
 
-pdf.save("pro-glass.pdf");
+/* ✅ FIXED DOWNLOAD (ONLY CHANGE) */
+const fileName = "pro-glass-" + Date.now() + ".pdf";
+const blob = pdf.output("blob");
+const url = URL.createObjectURL(blob);
+
+const a = document.createElement("a");
+a.href = url;
+a.download = fileName;
+document.body.appendChild(a);
+a.click();
+
+setTimeout(()=>{
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+},1000);
+
 }
 
 /* LOAD IMAGE */
