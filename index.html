@@ -190,10 +190,14 @@ opacity:0.7;
 <option value="low">Low Quality</option>
 </select>
 
-<!-- ✅ NEW FILE NAME INPUT -->
 <input type="text" id="customFileName" placeholder="Enter PDF Name (Optional)...">
 
-<button onclick="convert()">Download & Save PDF</button>
+<button id="convertBtn" onclick="convert()">Generate PDF</button>
+
+<div id="actionButtons" style="display:none; gap:10px; margin-top:5px;">
+<button onclick="savePDF()" style="background:linear-gradient(90deg,#3b82f6,#2563eb);">💾 Save PDF</button>
+<button onclick="sharePDF()" style="background:linear-gradient(90deg,#8b5cf6,#6d28d9);">📤 Share PDF</button>
+</div>
 
 <div class="info">
 ✔ 100% Browser Based • ✔ No Upload • ✔ Fast Processing
@@ -210,10 +214,17 @@ opacity:0.7;
 
 const { jsPDF } = window.jspdf;
 
+// Global variables to hold PDF data until user clicks Save or Share
+let finalPdfBlob = null;
+let finalFileName = "";
+
 /* PREVIEW */
 document.getElementById("files").addEventListener("change",e=>{
 let box=document.getElementById("preview");
 box.innerHTML="";
+// Hide action buttons again if new images are selected
+document.getElementById("actionButtons").style.display = "none";
+
 for(let f of e.target.files){
 let img=document.createElement("img");
 img.src=URL.createObjectURL(f);
@@ -229,17 +240,21 @@ if(mode==="low") return 0.65;
 return 0.95;
 }
 
-/* CONVERT */
+/* CONVERT - ONLY CREATES PDF AND SHOWS BUTTONS */
 async function convert(){
 
 let files=document.getElementById("files").files;
 let mode=document.getElementById("qualityMode").value;
 let quality=getQuality(mode);
+let btn = document.getElementById("convertBtn");
 
 if(!files.length){
-alert("Please select images");
+alert("Please select images first");
 return;
 }
+
+// Show processing text
+btn.innerText = "Processing...";
 
 const pdf=new jsPDF("p","mm","a4");
 
@@ -262,26 +277,53 @@ if(i>0) pdf.addPage();
 pdf.addImage(data,"JPEG",10,10,190,270);
 }
 
-/* ✅ FIXED DOWNLOAD WITH CUSTOM NAME */
+// Set File Name
 let inputName = document.getElementById("customFileName").value.trim();
-// اگر نام نہیں لکھا تو آٹومیٹک نام دے گا، اگر لکھا ہے تو وہی نام رکھے گا
-let finalFileName = inputName !== "" ? inputName + ".pdf" : "pro-glass-" + Date.now() + ".pdf";
+finalFileName = inputName !== "" ? inputName + ".pdf" : "pro-glass-" + Date.now() + ".pdf";
 
-const blob = pdf.output("blob");
-const url = URL.createObjectURL(blob);
+// Store the PDF in memory
+finalPdfBlob = pdf.output("blob");
 
+// Reset Generate button and show Save/Share buttons
+btn.innerText = "Generate PDF";
+document.getElementById("actionButtons").style.display = "flex";
+
+}
+
+/* ✅ NEW: SAVE FUNCTION */
+function savePDF() {
+if(!finalPdfBlob) return;
+const url = URL.createObjectURL(finalPdfBlob);
 const a = document.createElement("a");
 a.style.display = "none";
 a.href = url;
 a.download = finalFileName;
 document.body.appendChild(a);
 a.click();
-
 setTimeout(()=>{
 document.body.removeChild(a);
 URL.revokeObjectURL(url);
 },1000);
+}
 
+/* ✅ NEW: SHARE FUNCTION (MOBILE FRIENDLY) */
+async function sharePDF() {
+if(!finalPdfBlob) return;
+const file = new File([finalPdfBlob], finalFileName, { type: 'application/pdf' });
+
+if (navigator.canShare && navigator.canShare({ files: [file] })) {
+try {
+await navigator.share({
+files: [file],
+title: 'Converted PDF',
+text: 'Here is my converted PDF file.'
+});
+} catch (error) {
+console.log('Error sharing', error);
+}
+} else {
+alert("Your browser does not support sharing files directly. Please use the Save PDF button.");
+}
 }
 
 /* LOAD IMAGE */
