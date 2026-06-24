@@ -75,6 +75,7 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items: center;
+flex-wrap: wrap;
 padding:15px 20px;
 backdrop-filter:blur(20px);
 background: var(--nav-bg);
@@ -90,8 +91,9 @@ transition: 0.3s;
 .nav-links {
 display: flex;
 gap: 15px;
+flex-wrap: wrap;
+margin-top: 5px;
 align-items: center;
-white-space: nowrap; /* لنکس کو ایک ہی لائن میں رکھنے کے لیے */
 }
 .nav-links a {
 color: var(--text-muted);
@@ -104,7 +106,15 @@ transition: 0.3s;
 color: #22c55e;
 }
 
-/* EXTRA BUTTONS IN NAV */
+/* NAVIGATION ACTION BUTTONS (Moved to center below nav) */
+.nav-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--glass-border);
+}
 .nav-btn {
   background: transparent;
   border: 1px solid var(--text-main);
@@ -115,7 +125,6 @@ color: #22c55e;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
-  white-space: nowrap;
 }
 .nav-btn:hover {
   background: var(--text-main);
@@ -326,6 +335,7 @@ color: #22c55e;
 /* DESKTOP ADJUSTMENTS */
 @media (min-width: 768px) {
 nav { padding: 15px 50px; }
+nav .nav-links { margin-top: 0; }
 .hero h1 { font-size: 48px; }
 .glass { padding: 40px; }
 }
@@ -333,7 +343,7 @@ nav { padding: 15px 50px; }
 </style>
 </head>
 
-<body class="dark-mode"> <!-- ڈیفالٹ ڈارک موڈ کلاس -->
+<body class="dark-mode">
 
 <!-- NAVIGATION BAR -->
 <nav>
@@ -344,11 +354,14 @@ nav { padding: 15px 50px; }
 <a href="privacy.html">Privacy Policy</a>
 <a href="disclaimer.html">Disclaimer</a>
 <a href="contact.html">Contact</a>
-<!-- NEW BUTTONS FOR INSTALL APP & THEME -->
-<button id="installBtn" class="nav-btn">📲 Install</button>
-<button id="themeBtn" class="nav-btn" onclick="toggleTheme()">☀️ Light Mode</button>
 </div>
 </nav>
+
+<!-- BUTTONS SECTION (CENTERED BELOW NAV) -->
+<div class="nav-actions">
+<button id="installBtn" class="nav-btn">📲 Install App</button>
+<button id="themeBtn" class="nav-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+</div>
 
 <div class="hero">
 <h1>Image to PDF Converter</h1>
