@@ -12,14 +12,56 @@
 
 <style>
 
-/* 🌈 BACKGROUND */
+/* 🌈 CSS VARIABLES FOR LIGHT & DARK MODE */
+:root {
+  --bg-grad-1: #f8fafc;
+  --bg-grad-2: #e2e8f0;
+  --bg-grad-3: #f1f5f9;
+  --bg-grad-4: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(0,0,0,0.1);
+  --glass-shadow: rgba(0,0,0,0.1);
+  --nav-bg: rgba(255,255,255,0.8);
+  --input-bg: rgba(0,0,0,0.05);
+  --input-text: #0f172a;
+  --input-placeholder: #64748b;
+  --seo-bg: rgba(255,255,255,0.7);
+  --seo-border: rgba(0,0,0,0.1);
+  --seo-h3: #2563eb;
+  --badge-bg: rgba(0,0,0,0.08);
+}
+
+body.dark-mode {
+  --bg-grad-1: #0f172a;
+  --bg-grad-2: #1e293b;
+  --bg-grad-3: #111827;
+  --bg-grad-4: #0b1220;
+  --text-main: #fff;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.15);
+  --glass-shadow: rgba(0,0,0,0.5);
+  --nav-bg: rgba(255,255,255,0.08);
+  --input-bg: rgba(255,255,255,0.1);
+  --input-text: #fff;
+  --input-placeholder: #cbd5e1;
+  --seo-bg: rgba(15, 23, 42, 0.6);
+  --seo-border: rgba(255,255,255,0.08);
+  --seo-h3: #60a5fa;
+  --badge-bg: rgba(255,255,255,0.1);
+}
+
+/* BACKGROUND */
 body{
 margin:0;
 font-family:system-ui, -apple-system, sans-serif;
-color:#fff;
-background:linear-gradient(-45deg,#0f172a,#1e293b,#111827,#0b1220);
+color: var(--text-main);
+background:linear-gradient(-45deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4));
 background-size:400% 400%;
 animation:bg 10s ease infinite;
+transition: background 0.5s ease, color 0.5s ease;
 }
 
 @keyframes bg{
@@ -36,24 +78,25 @@ align-items: center;
 flex-wrap: wrap;
 padding:15px 20px;
 backdrop-filter:blur(20px);
-background:rgba(255,255,255,0.08);
+background: var(--nav-bg);
 position:sticky;
 top:0;
 z-index:10;
-border-bottom: 1px solid rgba(255,255,255,0.1);
+border-bottom: 1px solid var(--glass-border);
+transition: 0.3s;
 }
 
 .logo b{font-size:18px; color: #22c55e;}
 
-/* NAV LINKS FOR ADSENSE */
 .nav-links {
 display: flex;
 gap: 15px;
 flex-wrap: wrap;
 margin-top: 5px;
+align-items: center;
 }
 .nav-links a {
-color: #cbd5e1;
+color: var(--text-muted);
 text-decoration: none;
 font-size: 14px;
 font-weight: 500;
@@ -61,6 +104,25 @@ transition: 0.3s;
 }
 .nav-links a:hover {
 color: #22c55e;
+}
+
+/* EXTRA BUTTONS IN NAV */
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  width: auto;
+  margin: 0;
+}
+.nav-btn:hover {
+  background: var(--text-main);
+  color: var(--bg-grad-1);
 }
 
 /* HERO */
@@ -78,7 +140,7 @@ background:linear-gradient(90deg,#22c55e,#60a5fa);
 }
 
 .hero p{
-color:#94a3b8;
+color: var(--text-muted);
 margin-top: 10px;
 font-size: 16px;
 }
@@ -98,24 +160,26 @@ width:100%;
 max-width:700px;
 padding:30px;
 border-radius:18px;
-background:rgba(255,255,255,0.08);
+background: var(--glass-bg);
 backdrop-filter:blur(25px);
-border:1px solid rgba(255,255,255,0.15);
-box-shadow:0 20px 50px rgba(0,0,0,0.5);
+border:1px solid var(--glass-border);
+box-shadow:0 20px 50px var(--glass-shadow);
+transition: 0.3s;
 }
 
-/* 🚀 HIGH-VALUE EXTENSIVE SEO CONTENT SECTION FOR ADSENSE APPROVAL */
+/* SEO CONTENT SECTION FOR ADSENSE */
 .seo-content {
 width: 100%;
 max-width: 850px;
-background: rgba(15, 23, 42, 0.6);
+background: var(--seo-bg);
 padding: 40px;
 border-radius: 16px;
-border: 1px solid rgba(255,255,255,0.08);
-color: #cbd5e1;
+border: 1px solid var(--seo-border);
+color: var(--text-main);
 line-height: 1.8;
 text-align: left;
-box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+box-shadow: 0 10px 30px var(--glass-shadow);
+transition: 0.3s;
 }
 .seo-content h2 {
 color: #22c55e;
@@ -126,7 +190,7 @@ border-left: 4px solid #22c55e;
 padding-left: 12px;
 }
 .seo-content h3 {
-color: #60a5fa;
+color: var(--seo-h3);
 font-size: 19px;
 margin-top: 25px;
 margin-bottom: 10px;
@@ -134,27 +198,27 @@ margin-bottom: 10px;
 .seo-content p {
 font-size: 15px;
 margin-bottom: 20px;
-color: #94a3b8;
+color: var(--text-muted);
 }
 .seo-content ul, .seo-content ol {
 margin-bottom: 20px;
 padding-left: 20px;
-color: #94a3b8;
+color: var(--text-muted);
 }
 .seo-content li {
 margin-bottom: 8px;
 font-size: 15px;
 }
 .faq-item {
-background: rgba(255,255,255,0.03);
+background: var(--input-bg);
 padding: 15px 20px;
 border-radius: 8px;
 margin-bottom: 12px;
-border: 1px solid rgba(255,255,255,0.05);
+border: 1px solid var(--glass-border);
 }
 .faq-item h4 {
 margin: 0 0 8px 0;
-color: #f1f5f9;
+color: var(--text-main);
 font-size: 16px;
 }
 .faq-item p {
@@ -163,7 +227,7 @@ font-size: 14px;
 }
 
 /* INPUTS */
-input,select,button{
+input,select,button.main-btn{
 width:100%;
 padding:14px;
 margin:10px 0;
@@ -174,16 +238,17 @@ box-sizing: border-box;
 }
 
 input,select{
-background:rgba(255,255,255,0.1);
-color:white;
+background: var(--input-bg);
+color: var(--input-text);
 outline:none;
+border: 1px solid var(--glass-border);
 }
 
 input::placeholder {
-color: #cbd5e1;
+color: var(--input-placeholder);
 }
 
-button{
+button.main-btn{
 background:linear-gradient(90deg,#22c55e,#16a34a);
 font-weight:bold;
 cursor:pointer;
@@ -191,7 +256,7 @@ transition:0.2s;
 color: white;
 }
 
-button:hover{
+button.main-btn:hover{
 transform:scale(1.02);
 }
 
@@ -207,8 +272,9 @@ margin-bottom:15px;
 padding:6px 12px;
 border-radius:20px;
 font-size:13px;
-background:rgba(255,255,255,0.1);
+background: var(--badge-bg);
 font-weight: bold;
+color: var(--text-main);
 }
 
 /* PREVIEW */
@@ -224,13 +290,13 @@ width:75px;
 height:75px;
 object-fit:cover;
 border-radius:10px;
-border:2px solid rgba(255,255,255,0.2);
+border:2px solid var(--glass-border);
 }
 
 /* INFO */
 .info{
 font-size:13px;
-color:#94a3b8;
+color: var(--text-muted);
 margin-top:15px;
 text-align:center;
 }
@@ -239,9 +305,10 @@ text-align:center;
 footer{
 text-align:center;
 padding:30px 20px;
-border-top: 1px solid rgba(255,255,255,0.1);
+border-top: 1px solid var(--glass-border);
 margin-top: 40px;
-background:rgba(0,0,0,0.2);
+background: var(--nav-bg);
+color: var(--text-muted);
 }
 .footer-links {
 margin-top: 15px;
@@ -251,7 +318,7 @@ gap: 20px;
 flex-wrap: wrap;
 }
 .footer-links a {
-color: #94a3b8;
+color: var(--text-muted);
 text-decoration: none;
 font-size: 13px;
 }
@@ -272,6 +339,7 @@ nav .nav-links { margin-top: 0; }
 
 <body>
 
+<!-- NAVIGATION BAR -->
 <nav>
 <div class="logo"><b>🧾 Pro Glass PDF</b></div>
 <div class="nav-links">
@@ -280,6 +348,9 @@ nav .nav-links { margin-top: 0; }
 <a href="privacy.html">Privacy Policy</a>
 <a href="disclaimer.html">Disclaimer</a>
 <a href="contact.html">Contact</a>
+<!-- NEW BUTTONS FOR INSTALL APP & THEME -->
+<button id="installBtn" class="nav-btn">📲 Install App</button>
+<button id="themeBtn" class="nav-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
 </div>
 </nav>
 
@@ -289,6 +360,7 @@ nav .nav-links { margin-top: 0; }
 </div>
 
 <div class="container">
+<!-- THE TOOL -->
 <div class="glass">
 <div class="badges">
 <div class="badge">🔥 HD</div>
@@ -306,11 +378,11 @@ nav .nav-links { margin-top: 0; }
 
 <input type="text" id="customFileName" placeholder="Enter PDF Name (Optional)...">
 
-<button id="convertBtn" onclick="convert()">Generate PDF</button>
+<button id="convertBtn" class="main-btn" onclick="convert()">Generate PDF</button>
 
 <div id="actionButtons" style="display:none; gap:10px; margin-top:5px;">
-<button onclick="savePDF()" style="background:linear-gradient(90deg,#3b82f6,#2563eb);">💾 Save PDF</button>
-<button onclick="sharePDF()" style="background:linear-gradient(90deg,#8b5cf6,#6d28d9);">📤 Share PDF</button>
+<button class="main-btn" onclick="savePDF()" style="background:linear-gradient(90deg,#3b82f6,#2563eb);">💾 Save PDF</button>
+<button class="main-btn" onclick="sharePDF()" style="background:linear-gradient(90deg,#8b5cf6,#6d28d9);">📤 Share PDF</button>
 </div>
 
 <div class="info">
@@ -320,6 +392,7 @@ nav .nav-links { margin-top: 0; }
 <div class="preview" id="preview"></div>
 </div>
 
+<!-- SEO TEXT SECTION FOR ADSENSE -->
 <div class="seo-content">
 <h2>Ultimate Guide to Converting Images to PDF Online</h2>
 <p>In today's fast-paced digital world, document optimization and format conversion are integral parts of daily personal and professional operations. Whether you are a student compiling assignment screenshots, an employee organizing transaction bills, or a freelancer arranging design layouts, managing multiple standalone image formats (like JPEG, PNG, or WebP) can quickly become a tedious chore. That is precisely where <strong>Pro Glass PDF</strong> steps in—offering a streamlined, high-performance solution that seamlessly transforms multiple graphic items into a single, cohesive, standardized PDF document.</p>
@@ -383,6 +456,7 @@ nav .nav-links { margin-top: 0; }
 
 </div>
 
+<!-- FOOTER WITH LINKS -->
 <footer>
 <div>© 2026 Pro Glass Tools. All rights reserved.</div>
 <div class="footer-links">
@@ -396,6 +470,40 @@ nav .nav-links { margin-top: 0; }
 const { jsPDF } = window.jspdf;
 let finalPdfBlob = null;
 let finalFileName = "";
+
+/* 🌙 THEME TOGGLE LOGIC */
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  document.getElementById('themeBtn').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+// Check saved theme on load
+if(localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  document.getElementById('themeBtn').innerText = '☀️ Light Mode';
+}
+
+/* 📲 INSTALL APP LOGIC (PWA Fallback) */
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
+installBtn.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  } else {
+    // FALLBACK: User instructions if browser block install or Manifest is missing
+    alert("Installation prompt is not available directly right now.\n\nPlease go to your browser's menu (⋮) and select 'Add to Home screen' or 'Install App' to use it like a native app!");
+  }
+});
+
 
 /* PREVIEW */
 document.getElementById("files").addEventListener("change",e=>{
