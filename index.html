@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlBybyBHbGFzcyBQREYgQ29udmVydGVyIiwKICAic2hvcnRfbmFtZSI6ICJQREYgVG9vbCIsCiAgInN0YXJ0X3VybCI6ICIuL2luZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZlZmZmYiIsCiAgInRoZW1lX2NvbG9yIjogIiNmZlZmZmYiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImZhdmljb24uaWNvIiwKICAgICAgInNpemVzIjogIjY0eDY0IDMyLTMyIDI0LTI0IDE2eDE2IiwKICAgICAgInR5cGUijogImltYWdlL3gtaWNvIgogICAgfQogIF0KfQ==">
+<!-- بس یہ ایک لائن تبدیل کی گئی ہے تاکہ کروم والا آئیکون ہٹ جائے -->
+<link rel="manifest" href="manifest.json">
 
 <script>
   if ('serviceWorker' in navigator) {
@@ -197,7 +198,8 @@ installBtn.addEventListener('click', () => {
       deferredPrompt = null;
     });
   } else {
-    alert("Browser is already installed or 'Install' option is in your browser menu (⋮).");
+    /* یہ آپ کے کہنے کے مطابق گوگل کروم کی کنفرمیشن کا میسج ہے */
+    alert("Browser is already installed or 'Install' option is in your Google Chrome menu (⋮).");
   }
 });
 
