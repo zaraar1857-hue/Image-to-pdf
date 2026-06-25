@@ -5,6 +5,13 @@
 <!-- Manifest Link Added -->
 <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlBybyBHbGFzcyBQREYgQ29udmVydGVyIiwKICAic2hvcnRfbmFtZSI6ICJQREYgVG9vbCIsCiAgInN0YXJ0X3VybCI6ICIuL2luZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZlZmZmYiIsCiAgInRoZW1lX2NvbG9yIjogIiNmZlZmZmYiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImZhdmljb24uaWNvIiwKICAgICAgInNpemVzIjogIjY0eDY0IDMyLTMyIDI0LTI0IDE2eDE2IiwKICAgICAgInR5cGUiOiAiaW1hZ2UveC1pY29uIgogICAgfQogIF0KfQ==">
 
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://emailrefiner.site/" />
