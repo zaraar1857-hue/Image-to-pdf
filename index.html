@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- Manifest Link Added -->
-<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlBybyBHbGFzcyBQREYgQ29udmVydGVyIiwKICAic2hvcnRfbmFtZSI6ICJQREYgVG9vbCIsCiAgInN0YXJ0X3VybCI6ICIuL2luZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZlZmZmYiIsCiAgInRoZW1lX2NvbG9yIjogIiNmZlZmZmYiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImZhdmljb24uaWNvIiwKICAgICAgInNpemVzIjogIjY0eDY0IDMyLTMyIDI0LTI0IDE2eDE2IiwKICAgICAgInR5cGUiOiAiaW1hZ2UveC1pY29uIgogICAgfQogIF0KfQ==">
+<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlBybyBHbGFzcyBQREYgQ29udmVydGVyIiwKICAic2hvcnRfbmFtZSI6ICJQREYgVG9vbCIsCiAgInN0YXJ0X3VybCI6ICIuL2luZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZlZmZmYiIsCiAgInRoZW1lX2NvbG9yIjogIiNmZlZmZmYiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImZhdmljb24uaWNvIiwKICAgICAgInNpemVzIjogIjY0eDY0IDMyLTMyIDI0LTI0IDE2eDE2IiwKICAgICAgInR5cGUijogImltYWdlL3gtaWNvIgogICAgfQogIF0KfQ==">
 
-<!-- Service Worker Registration -->
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js');
@@ -16,7 +14,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://emailrefiner.site/" />
 
-<!-- Trust & SEO Meta Tags -->
 <meta name="robots" content="index, follow">
 <meta name="author" content="Pro Glass Tools">
 <meta name="theme-color" content="#0f172a">
@@ -27,7 +24,6 @@
 
 <meta name="description" content="PDF Converter - Best Image to PDF Converter Online. Convert your images to PDF in seconds. Fast, free, and easy-to-use. Perfect for mobile users.">
 
-<!-- WebApplication Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -52,7 +48,6 @@
 }
 </script>
 
-<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -149,6 +144,7 @@ footer{text-align:center; padding:30px 20px; border-top: 1px solid var(--glass-b
 <select id="qualityMode"><option value="hd">HD Quality (Best)</option><option value="medium">Medium Quality</option><option value="low">Low Quality</option></select>
 <input type="text" id="customFileName" placeholder="Enter PDF Name (Optional)...">
 
+<button id="installBtnHidden" style="display:none;"></button>
 <button id="convertBtn" class="main-btn" onclick="convert()">Generate PDF</button>
 
 <div id="actionButtons" style="display:none; gap:10px; margin-top:5px;">
@@ -185,27 +181,25 @@ function toggleTheme() {
   document.getElementById('themeBtn').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
 }
 
-/* 📲 UPDATED INSTALL LOGIC - NO ERRORS */
+/* 📲 UPDATED INSTALL LOGIC */
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
-window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
 
-installBtn.addEventListener('click', async () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') { showToast("Installation Started..."); }
-    deferredPrompt = null;
-  }
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
 });
 
-function showToast(msg) {
-  let t = document.createElement("div");
-  t.innerText = msg;
-  t.style = "position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#22c55e; color:white; padding:10px 20px; border-radius:8px; z-index:1000;";
-  document.body.appendChild(t);
-  setTimeout(() => { t.remove(); }, 2000);
-}
+installBtn.addEventListener('click', () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      deferredPrompt = null;
+    });
+  } else {
+    alert("Browser is already installed or 'Install' option is in your browser menu (⋮).");
+  }
+});
 
 /* 🔄 UPDATED CONVERT LOGIC */
 async function convert(){
