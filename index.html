@@ -606,6 +606,8 @@ document.getElementById("files").addEventListener("change",e=>{
 let box=document.getElementById("preview");
 box.innerHTML="";
 document.getElementById("actionButtons").style.display = "none";
+document.getElementById("convertBtn").innerText = "Generate PDF";
+document.getElementById("convertBtn").style.background = "linear-gradient(90deg,#22c55e,#16a34a)";
 for(let f of e.target.files){
 let img=document.createElement("img");
 img.src=URL.createObjectURL(f);
@@ -634,6 +636,8 @@ return;
 }
 
 btn.innerText = "Processing...";
+btn.style.background = "#64748b";
+
 const pdf=new jsPDF("p","mm","a4");
 
 for(let i=0;i<files.length;i++){
@@ -653,7 +657,8 @@ let inputName = document.getElementById("customFileName").value.trim();
 finalFileName = inputName !== "" ? inputName + ".pdf" : "pro-glass-" + Date.now() + ".pdf";
 finalPdfBlob = pdf.output("blob");
 
-btn.innerText = "Generate PDF";
+btn.innerText = "Generated";
+btn.style.background = "#22c55e";
 document.getElementById("actionButtons").style.display = "flex";
 }
 
