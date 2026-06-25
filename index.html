@@ -73,7 +73,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-/* CSS وہی پرانی والی ہے جو آپ نے بھیجی تھی */
 :root { --bg-grad-1: #f8fafc; --bg-grad-2: #e2e8f0; --bg-grad-3: #f1f5f9; --bg-grad-4: #cbd5e1; --text-main: #0f172a; --text-muted: #475569; --glass-bg: rgba(255,255,255,0.7); --glass-border: rgba(0,0,0,0.1); --glass-shadow: rgba(0,0,0,0.1); --nav-bg: rgba(255,255,255,0.8); --input-bg: rgba(0,0,0,0.05); --input-text: #0f172a; --input-placeholder: #64748b; --seo-bg: rgba(255,255,255,0.7); --seo-border: rgba(0,0,0,0.1); --seo-h3: #2563eb; --badge-bg: rgba(0,0,0,0.08); }
 body.dark-mode { --bg-grad-1: #0f172a; --bg-grad-2: #1e293b; --bg-grad-3: #111827; --bg-grad-4: #0b1220; --text-main: #fff; --text-muted: #94a3b8; --glass-bg: rgba(255,255,255,0.08); --glass-border: rgba(255,255,255,0.15); --glass-shadow: rgba(0,0,0,0.5); --nav-bg: rgba(255,255,255,0.08); --input-bg: rgba(255,255,255,0.1); --input-text: #fff; --input-placeholder: #cbd5e1; --seo-bg: rgba(15, 23, 42, 0.6); --seo-border: rgba(255,255,255,0.08); --seo-h3: #60a5fa; --badge-bg: rgba(255,255,255,0.1); }
 body{margin:0; font-family:system-ui, -apple-system, sans-serif; color: var(--text-main); background:linear-gradient(-45deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3), var(--bg-grad-4)); background-size:400% 400%; animation:bg 10s ease infinite; transition: background 0.5s ease, color 0.5s ease;}
@@ -157,7 +156,6 @@ footer{text-align:center; padding:30px 20px; border-top: 1px solid var(--glass-b
 <div class="seo-content">
 <h2>Easily Convert Images to PDF: A Simple Guide</h2>
 <p>We've all been there: you need to send a few photos or scanned documents as a single file...</p>
-<!-- SEO Content -->
 </div>
 </div>
 
@@ -180,7 +178,7 @@ function toggleTheme() {
   document.getElementById('themeBtn').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
 }
 
-/* 📲 UPDATED INSTALL LOGIC */
+/* 📲 UPDATED INSTALL LOGIC - NO ERRORS */
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
@@ -191,7 +189,7 @@ installBtn.addEventListener('click', async () => {
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === 'accepted') { showToast("Installation Started..."); }
     deferredPrompt = null;
-  } else { alert("App is already installed or not supported."); }
+  }
 });
 
 function showToast(msg) {
