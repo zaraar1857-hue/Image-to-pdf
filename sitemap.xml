@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- مین پیج -->
   <url>
-    <loc>https://emailrefiner.site/</loc>
+    <loc>https://zaraar1857-hue.github.io/Image-to-pdf/</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- پرائیویسی پالیسی -->
   <url>
-    <loc>https://emailrefiner.site/privacy.html</loc>
+    <loc>https://zaraar1857-hue.github.io/Image-to-pdf/about.html</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- ڈس کلیمر -->
   <url>
-    <loc>https://emailrefiner.site/disclaimer.html</loc>
+    <loc>https://zaraar1857-hue.github.io/Image-to-pdf/privacy.html</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- کانٹیکٹ -->
   <url>
-    <loc>https://emailrefiner.site/contact.html</loc>
+    <loc>https://zaraar1857-hue.github.io/Image-to-pdf/disclaimer.html</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://zaraar1857-hue.github.io/Image-to-pdf/contact.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
