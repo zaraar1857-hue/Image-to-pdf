@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- بس یہ ایک لائن تبدیل کی گئی ہے تاکہ کروم والا آئیکون ہٹ جائے -->
 <link rel="manifest" href="manifest.json">
 
 <script>
@@ -34,42 +33,11 @@
   "description": "A secure, browser-based tool to convert images into PDF documents without uploading files to a server.",
   "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
   "featureList": "Supports JPG, PNG, WebP, and BMP files. Provides HD, Medium, and Low quality compression options. Client-side processing for privacy.",
-  "creator": {
-    "@type": "Organization",
-    "name": "Pro Glass Tools"
-  },
+  "creator": { "@type": "Organization", "name": "Pro Glass Tools" },
   "applicationCategory": "UtilitiesApplication",
   "applicationSubCategory": "Document Conversion",
   "operatingSystem": "All",
-  "offers": {
-    "@type": "Offer",
-    "price": "0.00",
-    "priceCurrency": "USD"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "1. Does this tool cost anything?", "acceptedAnswer": { "@type": "Answer", "text": "No, this tool is 100% free to use for everyone." } },
-    { "@type": "Question", "name": "2. Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. There is no sign-up process, and we don't track your personal information." } },
-    { "@type": "Question", "name": "3. Can I use this on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, it works perfectly on smartphones, tablets, and desktop computers." } },
-    { "@type": "Question", "name": "4. Is there a limit to how many images I can convert?", "acceptedAnswer": { "@type": "Answer", "text": "There is no hard limit, though it's best to convert reasonable batches to keep your browser running fast." } },
-    { "@type": "Question", "name": "5. Which file formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "We support all common image formats like JPG, JPEG, PNG, and WebP." } },
-    { "@type": "Question", "name": "6. How do I change the order of the images?", "acceptedAnswer": { "@type": "Answer", "text": "The PDF will be created based on the order you select the files in your file picker." } },
-    { "@type": "Question", "name": "7. Is my file stored on your server?", "acceptedAnswer": { "@type": "Answer", "text": "No. We do not have a server that stores files. Everything is processed locally in your browser." } },
-    { "@type": "Question", "name": "8. Why should I use the 'Low' quality setting?", "acceptedAnswer": { "@type": "Answer", "text": "Use it if you have a slow internet connection or need to email a file that has a strict size limit." } },
-    { "@type": "Question", "name": "9. What should I do if the button doesn't work?", "acceptedAnswer": { "@type": "Answer", "text": "Ensure you have selected at least one image file. If issues persist, try refreshing the page." } },
-    { "@type": "Question", "name": "10. Can I convert a PDF back into images?", "acceptedAnswer": { "@type": "Answer", "text": "This specific tool is designed to go from images to PDF only." } },
-    { "@type": "Question", "name": "11. Will my images lose quality?", "acceptedAnswer": { "@type": "Answer", "text": "Only if you choose the 'Low' quality setting. The 'HD' setting keeps the quality as high as possible." } },
-    { "@type": "Question", "name": "12. Can I use this offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, once the page is fully loaded, the conversion process works even if you lose your internet connection." } },
-    { "@type": "Question", "name": "13. How do I delete the created PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Simply delete the file from your 'Downloads' folder on your device." } },
-    { "@type": "Question", "name": "14. Is it secure for bank documents?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, because the files never leave your device, it is much safer than uploading to a third-party server." } },
-    { "@type": "Question", "name": "15. Will this work on an iPhone?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely, it is fully compatible with iOS Safari and other mobile browsers." } }
-  ]
+  "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" }
 }
 </script>
 
@@ -95,19 +63,13 @@ nav{display:flex; justify-content:space-between; align-items: center; flex-wrap:
 .glass{width:100%; max-width:700px; padding:30px; border-radius:18px; background: var(--glass-bg); backdrop-filter:blur(25px); border:1px solid var(--glass-border); box-shadow:0 20px 50px var(--glass-shadow); transition: 0.3s;}
 .seo-content {width: 100%; max-width: 850px; background: var(--seo-bg); padding: 40px; border-radius: 16px; border: 1px solid var(--seo-border); color: var(--text-main); line-height: 1.8; text-align: left; box-shadow: 0 10px 30px var(--glass-shadow); transition: 0.3s;}
 .seo-content h2 {color: #22c55e; font-size: 24px; margin-top: 30px; margin-bottom: 15px; border-left: 4px solid #22c55e; padding-left: 12px;}
-.seo-content h3 {color: var(--seo-h3); font-size: 19px; margin-top: 25px; margin-bottom: 10px;}
-.seo-content p {font-size: 15px; margin-bottom: 20px; color: var(--text-muted);}
-.seo-content ul, .seo-content ol { margin-bottom: 20px; padding-left: 20px; color: var(--text-muted); }
-.seo-content li { margin-bottom: 8px; font-size: 15px; }
 .faq-item { background: var(--input-bg); padding: 15px 20px; border-radius: 8px; margin-bottom: 12px; border: 1px solid var(--glass-border); }
-.faq-item h4 { margin: 0 0 8px 0; color: var(--text-main); font-size: 16px; }
-.faq-item p { margin: 0; font-size: 14px; }
+.faq-item h4 { margin: 0 0 8px 0; color: #22c55e; font-size: 16px; }
+.faq-item p { margin: 0; font-size: 14px; color: var(--text-muted); }
 input,select,button.main-btn{width:100%; padding:14px; margin:10px 0; border:none; border-radius:10px; font-size:15px; box-sizing: border-box;}
 input,select{background: var(--input-bg); color: var(--input-text); outline:none; border: 1px solid var(--glass-border);}
 button.main-btn{background:linear-gradient(90deg,#22c55e,#16a34a); font-weight:bold; cursor:pointer; transition:0.2s; color: white;}
 button.main-btn:hover{transform:scale(1.02);}
-.badges{display:flex; gap:10px; justify-content:center; margin-bottom:15px;}
-.badge{padding:6px 12px; border-radius:20px; font-size:13px; background: var(--badge-bg); font-weight: bold; color: var(--text-main);}
 .preview{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
 .preview img{width:75px; height:75px; object-fit:cover; border-radius:10px; border:2px solid var(--glass-border);}
 .info{font-size:13px; color: var(--text-muted); margin-top:15px; text-align:center;}
@@ -115,7 +77,6 @@ footer{text-align:center; padding:30px 20px; border-top: 1px solid var(--glass-b
 .footer-links { margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; }
 .footer-links a:hover { color: #22c55e; }
-@media (min-width: 768px) { nav { padding: 15px 50px; } nav .nav-links { margin-top: 0; } .hero h1 { font-size: 48px; } .glass { padding: 40px; } }
 </style>
 </head>
 
@@ -129,7 +90,7 @@ footer{text-align:center; padding:30px 20px; border-top: 1px solid var(--glass-b
 </nav>
 
 <div class="nav-actions">
-<button id="installBtn" class="nav-btn">📲 Install App</button>
+<button id="installBtn" class="nav-btn" style="display:none;">📲 Install App</button>
 <button id="themeBtn" class="nav-btn" onclick="toggleTheme()">☀️ Light Mode</button>
 </div>
 
@@ -140,78 +101,86 @@ footer{text-align:center; padding:30px 20px; border-top: 1px solid var(--glass-b
 
 <div class="container">
 <div class="glass">
-<div class="badges"><div class="badge">🔥 HD</div><div class="badge">⚡ Medium</div><div class="badge">📉 Low</div></div>
 <input type="file" id="files" multiple accept="image/*">
 <select id="qualityMode"><option value="hd">HD Quality (Best)</option><option value="medium">Medium Quality</option><option value="low">Low Quality</option></select>
-<input type="text" id="customFileName" placeholder="Enter PDF Name (Optional)...">
-
-<button id="installBtnHidden" style="display:none;"></button>
 <button id="convertBtn" class="main-btn" onclick="convert()">Generate PDF</button>
 
 <div id="actionButtons" style="display:none; gap:10px; margin-top:5px;">
 <button class="main-btn" onclick="savePDF()" style="background:linear-gradient(90deg,#3b82f6,#2563eb);">💾 Save PDF</button>
-<button class="main-btn" onclick="sharePDF()" style="background:linear-gradient(90deg,#8b5cf6,#6d28d9);">📤 Share PDF</button>
 </div>
-
-<div class="info">✔ 100% Browser Based • ✔ No Upload • ✔ Fast Processing</div>
 <div class="preview" id="preview"></div>
 </div>
 
-<div class="seo-content">
-<h2>Easily Convert Images to PDF: A Simple Guide</h2>
-<p>We've all been there: you need to send a few photos or scanned documents as a single file...</p>
+<div class="seo-content" id="faq-section">
+<h2>Frequently Asked Questions</h2>
+<div id="faq-list"></div>
 </div>
 </div>
 
 <footer>
 <div>© 2026 Pro Glass Tools. All rights reserved.</div>
 <div class="footer-links">
-<a href="privacy.html">Privacy Policy</a><a href="disclaimer.html">Disclaimer</a><a href="terms.html">Terms of Service</a>
+<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="contact.html">Contact Us</a><a href="disclaimer.html">Disclaimer</a>
 </div>
 </footer>
 
 <script>
 const { jsPDF } = window.jspdf;
 let finalPdfBlob = null;
-let finalFileName = "";
+let deferredPrompt;
 
-/* THEME */
+/* انسٹال بٹن اور لاجک */
+const installBtn = document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'block';
+});
+
+window.addEventListener('appinstalled', () => { installBtn.style.display = 'none'; });
+
+installBtn.addEventListener('click', () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+  } else { alert("Install option is in your browser menu (⋮)."); }
+});
+
+/* 15 FAQs Data */
+const faqs = [
+  {"q": "Is this tool free?", "a": "Yes, our image to PDF converter is 100% free."},
+  {"q": "Do I need to sign up?", "a": "No, there is no registration required."},
+  {"q": "Is it safe for private files?", "a": "Yes, all processing happens locally on your device."},
+  {"q": "Does it work offline?", "a": "Yes, after initial load, it works without internet."},
+  {"q": "Which formats are supported?", "a": "We support JPG, PNG, WebP, and BMP."},
+  {"q": "Can I use it on iPhone?", "a": "Yes, it works perfectly on all mobile browsers."},
+  {"q": "How to order images?", "a": "The PDF follows the order in which you select them."},
+  {"q": "Is there a file limit?", "a": "No, but we recommend reasonable batches for speed."},
+  {"q": "Will quality drop?", "a": "Only if you select 'Low' quality. HD is high quality."},
+  {"q": "How to delete the PDF?", "a": "Just delete it from your device's download folder."},
+  {"q": "Is it better than server tools?", "a": "Yes, because it is more secure and faster."},
+  {"q": "Do you track my data?", "a": "Absolutely not. We have no servers to store data."},
+  {"q": "What if the button fails?", "a": "Refresh the page or clear your browser cache."},
+  {"q": "Can I use it for banking documents?", "a": "Yes, it is extremely secure for sensitive documents."},
+  {"q": "Is this an official app?", "a": "This is a high-quality, professional web utility tool."}
+];
+
+const faqList = document.getElementById('faq-list');
+faqs.forEach(item => {
+  faqList.innerHTML += `<div class="faq-item"><h4>${item.q}</h4><p>${item.a}</p></div>`;
+});
+
 function toggleTheme() {
   document.body.classList.toggle('dark-mode');
   const isDark = document.body.classList.contains('dark-mode');
   document.getElementById('themeBtn').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
 }
 
-/* 📲 UPDATED INSTALL LOGIC */
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
-
-installBtn.addEventListener('click', () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      deferredPrompt = null;
-    });
-  } else {
-    /* یہ آپ کے کہنے کے مطابق گوگل کروم کی کنفرمیشن کا میسج ہے */
-    alert("Browser is already installed or 'Install' option is in your Google Chrome menu (⋮).");
-  }
-});
-
-/* 🔄 UPDATED CONVERT LOGIC */
 async function convert(){
   let files=document.getElementById("files").files;
   let btn = document.getElementById("convertBtn");
   if(!files.length){ alert("Please select images first"); return; }
-  
   btn.innerText = "Processing..."; 
-  btn.style.background = "#64748b";
-
   const pdf=new jsPDF("p","mm","a4");
   for(let i=0;i<files.length;i++){
     let img=await load(files[i]);
@@ -223,15 +192,12 @@ async function convert(){
     pdf.addImage(data,"JPEG",10,10,190,270);
   }
   finalPdfBlob = pdf.output("blob");
-  
   btn.innerText = "Generated";
-  btn.style.background = "#22c55e";
   document.getElementById("actionButtons").style.display = "flex";
 }
 
-document.getElementById("files").addEventListener("change",e=>{ document.getElementById("preview").innerHTML=""; document.getElementById("actionButtons").style.display = "none"; document.getElementById("convertBtn").innerText = "Generate PDF"; document.getElementById("convertBtn").style.background = "linear-gradient(90deg,#22c55e,#16a34a)"; for(let f of e.target.files){ let img=document.createElement("img"); img.src=URL.createObjectURL(f); document.getElementById("preview").appendChild(img); } });
+document.getElementById("files").addEventListener("change",e=>{ document.getElementById("preview").innerHTML=""; document.getElementById("actionButtons").style.display = "none"; document.getElementById("convertBtn").innerText = "Generate PDF"; for(let f of e.target.files){ let img=document.createElement("img"); img.src=URL.createObjectURL(f); document.getElementById("preview").appendChild(img); } });
 function savePDF() { if(!finalPdfBlob) return; const a = document.createElement("a"); a.href = URL.createObjectURL(finalPdfBlob); a.download = "doc.pdf"; a.click(); }
-async function sharePDF() { if(!finalPdfBlob) return; const file = new File([finalPdfBlob], "doc.pdf", { type: 'application/pdf' }); if(navigator.canShare) await navigator.share({files:[file]}); else alert("Sharing not supported"); }
 function load(file){ return new Promise(res=>{ let img=new Image(); img.src=URL.createObjectURL(file); img.onload=()=>res(img); }); }
 </script>
 </body>
