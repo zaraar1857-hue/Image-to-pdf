@@ -1,18 +1,16 @@
 {
   "name": "Pro Glass PDF Converter",
   "short_name": "PDF Tool",
-  "description": "Professional Image to PDF Converter - No Upload Required.",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#0f172a",
+  "background_color": "#ffffff",
   "theme_color": "#0f172a",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "https://emailrefiner.site/favicon.ico",
-      "sizes": "64x64",
-      "type": "image/x-icon"
+      "src": "https://img.icons8.com/color/512/pdf.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ],
-  "prefer_related_applications": false
+  ]
 }
